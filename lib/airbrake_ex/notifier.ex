@@ -122,7 +122,7 @@ defmodule AirbrakeEx.Notifier do
   end
 
   defp error_type(%{type: type}) when is_binary(type), do: type
-  defp error_type(%{type: type}) when is_atom(type), do: to_string(type)
+  defp error_type(%{type: type}) when is_atom(type), do: to_string_type(type)
   defp error_type(%{__struct__: type}) when is_atom(type), do: to_string_type(type)
   defp error_type(_), do: nil
 

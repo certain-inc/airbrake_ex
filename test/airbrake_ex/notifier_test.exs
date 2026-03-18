@@ -180,6 +180,12 @@ defmodule AirbrakeEx.NotifierTest do
     AirbrakeEx.Notifier.notify(error_to_ignore)
   end
 
+  test "does not notify if atom-typed map error is in ignore list", %{bypass: _bypass} do
+    Application.put_env(:airbrake_ex, :ignore, [SpecificError])
+
+    AirbrakeEx.Notifier.notify(%{type: SpecificError})
+  end
+
   test "notifies if error not in ignore list", %{bypass: bypass} do
     Application.put_env(:airbrake_ex, :ignore, [AnotherError])
 
