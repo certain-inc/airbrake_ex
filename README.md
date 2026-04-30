@@ -7,7 +7,7 @@ Add AirbrakeEx as a dependency to your `mix.exs` file:
 
 ```elixir
 defp deps do
-  [{:airbrake_ex, "~> 0.2.6"}]
+  [{:airbrake_ex, "~> 0.2.10"}]
 end
 ```
 
@@ -150,5 +150,5 @@ config :airbrake_ex,
 
 This library was based on a fork from the
 [`airbrakex`](https://hex.pm/packages/airbrakex) Hex package.  Development and
-support for that library seems to have lapsed, but we (the devs at
-[Rum&Code](https://rumandcode.io/)) had changes and updates we wanted to make, so we decided to turn our forked version into a separate library. We'd like to thank to [Michał Kalbarczyk](https://github.com/fazibear) for his work on the original library.
+support for that library seems to have lapsed, but the devs at
+[Rum&Code](https://rumandcode.io/) had changes and updates they wanted to make, so they decided to turn their forked version into a separate library. Certain, Inc is now maintaining the hexp.pm package and this fork. We'd like to thank [Rum&Code](https://rumandcode.io/) for their work on this fork & [Michał Kalbarczyk](https://github.com/fazibear) for his work on the original library.

@@ -12,16 +12,16 @@ defmodule AirbrakeEx.MixProject do
       dialyzer: dialyzer(),
       docs: [
         main: AirbrakeEx,
-        source_url: "https://github.com/rum-and-code/airbrake_ex"
+        source_url: "https://github.com/certain-inc/airbrake_ex"
       ]
     ]
   end
 
   def package() do
     [
-      maintainers: ["Rum&Code", "Michał Kalbarczyk"],
+      maintainers: ["Paul Nicholson", "Rum&Code", "Michał Kalbarczyk"],
       licenses: ["MIT"],
-      links: %{github: "https://github.com/rum-and-code/airbrake_ex"}
+      links: %{github: "https://github.com/certain-inc/airbrake_ex"}
     ]
   end
 
