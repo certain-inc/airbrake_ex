@@ -8,7 +8,8 @@ end
 
 defmodule AirbrakeEx.PlugTest do
   use ExUnit.Case
-  use Plug.Test
+  import Plug.Test
+  import Plug.Conn
 
   @project_id "project_id"
   @project_key "project_key"

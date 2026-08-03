@@ -34,22 +34,17 @@ defmodule AirbrakeEx.ExceptionParserTest do
 
     assert Enum.member?(backtrace_functions, "inspect(\"test\", [], \"\")")
     assert Enum.member?(backtrace_functions, "test parses exception/1")
-    assert Enum.member?(backtrace_functions, "exec_test/1")
-    assert Enum.member?(backtrace_functions, "tc/1")
 
-    compare = &Version.compare(System.version(), &1)
+    # ExUnit-internal frame names are stable, but their arities shift between
+    # Elixir/OTP versions (e.g. exec_test/1 -> /2 on OTP 27). Match by name
+    # prefix so the assertion tracks the parser's output, not ExUnit internals.
+    assert_frame = fn prefix ->
+      assert Enum.any?(backtrace_functions, &String.starts_with?(&1, prefix)),
+             "expected a #{prefix}* frame in #{inspect(backtrace_functions)}"
+    end
 
-    spawn_test =
-      if :lt == compare.("1.6.0") do
-        "-spawn_test/3-fun-1-/3"
-      else
-        if :lt == compare.("1.8.0") do
-          "-spawn_test/3-fun-1-/4"
-        else
-          "-spawn_test_monitor/4-fun-1-/4"
-        end
-      end
-
-    assert Enum.member?(backtrace_functions, spawn_test)
+    assert_frame.("exec_test/")
+    assert_frame.("tc/")
+    assert_frame.("-spawn_test_monitor/4-fun-1-/")
   end
 end

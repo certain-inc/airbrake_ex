@@ -4,8 +4,8 @@ defmodule AirbrakeEx.MixProject do
   def project do
     [
       app: :airbrake_ex,
-      version: "0.2.10",
-      elixir: "~> 1.14",
+      version: "0.3.0",
+      elixir: "~> 1.17",
       description: "Airbrake notifier for Elixir",
       package: package(),
       deps: deps(),
@@ -31,7 +31,7 @@ defmodule AirbrakeEx.MixProject do
 
   defp deps() do
     [
-      {:httpoison, "~> 1.8"},
+      {:httpoison, "~> 3.0"},
       {:jason, "~> 1.4.4"},
       {:bypass, "~> 2.1", only: :test},
       {:ex_doc, "~> 0.31", only: :dev, runtime: false},
